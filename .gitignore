@@ -1,0 +1,63 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+*/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+# /compass
+
+# misc
+.idea/
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.production
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env
+/compass/functions/cert
+.runtimeconfig.json
+/node_modules/
+firebase-debug.log
+
+# firebase
+*.cache
+
+# hosting
+.htaccess
+compass/yarn.lock
+compass/docker-compose.yml
+
+
+# logs
+*.log
+
+# local files
+.local_*
+.nvmrc
+
+# jetbrains
+.idea
+
+# jest
+coverage
+
+# firebase
+firebase_dump
+firebase-export-*
+compass/firebase-export-*
+.next
+
+
+# backup
+backup
