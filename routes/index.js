@@ -30,16 +30,16 @@ router.post("/authorize", async (req, res) => {
         headers: {
             "Content-Type": "application/json",
             "X-Api-Key": process.env["PRIMER-API-KEY"],
-            "Idempotency-Key": orderId, // Optionally add an idempotency key
         },
         body: JSON.stringify({
             amount: 700,
-            currencyCode: "EUR",
-            orderId: orderId,
+            currencyCode: "USD",
+            orderId: "invoice1",
             paymentInstrument: {
                 token: token,
             },
         }),
     })
+    return res.send(await response.json);
 })
 module.exports = router;
