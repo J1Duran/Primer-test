@@ -40,6 +40,6 @@ router.post("/authorize", async (req, res) => {
             },
         }),
     })
-    return res.send(await response.json);
+    return res.send(await response.json());
 })
 module.exports = router;
