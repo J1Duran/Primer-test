@@ -10,13 +10,39 @@ router.get('/', function (req, res, next) {
 
 
 router.post("/client-token", async (req, res) => {
-    const url = `${process.env["PRIMER-API-URL"]}/auth/client-token`;
+    const url = `${process.env["PRIMER-API-URL"]}/client-session`;
     const response = await fetch(url, {
         method: "post",
         headers: {
             "Content-Type": "application/json",
             "X-Api-Key": process.env["PRIMER-API-KEY"],
         },
+        body: JSON.stringify({
+            customerId: "customer-123",
+            orderId: "order-abc",
+            currencyCode: "USD",
+            amount: 1000,
+            metadata: {
+                subscriptionType: "hardware"
+            },
+            customer: {
+                emailAddress: "john@primer.io"
+            },
+            order: {
+                countryCode: "US",
+                lineItems: [
+                    {
+                        itemId: "shoe-123",
+                        description: "Blue Shoe",
+                        amount: 100,
+                        quantity: 10
+                    }
+                ]
+            },
+            paymentMethod: {
+                vaultOnSuccess: true,
+            }
+        })
     });
     const json = await response.json();
     return res.send(json);
